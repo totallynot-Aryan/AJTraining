@@ -781,3 +781,533 @@ public class Main {
     }
 }
 */
+
+/*
+//I1.java
+package interfaceDemo;
+public interface I1 {
+    void fun();
+    void show();
+}
+
+//I2.java
+package interfaceDemo;
+public interface I2 {
+    void fun1();
+    void show();
+}
+
+//Test.java
+package interfaceDemo;
+public class Test implements I1,I2{
+    @Override
+    public void fun1(){
+        System.out.println("Fun1 is called");
+    }
+    @Override
+    public void fun(){
+        System.out.println("Fun is called");
+    }
+    @Override
+    public void show(){
+        System.out.println("Show is called");
+    }
+}
+
+//Main.java
+public class Main {
+    public static void main(String[]args){
+        Test t = new Test();
+        t.fun();
+        t.fun1();
+        t.show();
+    }
+}
+*/
+
+/*
+interface Vehicle{
+    void changeGear(int g);
+    void speedUp(int u);
+    void speedDown(int d);
+}
+
+class Cycle implements Vehicle{
+    int speed=0;
+    int gear=0;
+
+    @Override
+    public void changeGear(int g) {
+        this.gear=g;
+        //gear=changeGear();
+
+    }
+
+    @Override
+    public void speedUp(int u) {
+        speed=speed+u;
+
+    }
+
+    @Override
+    public void speedDown(int d) {
+        speed=speed-d;
+    }
+
+    /*
+    @Override
+    public String toString() {
+        return "Gear is " + gear + " " + "Speed is " + speed;
+        //return super.toString();
+    }
+    */
+/* //continued of above
+    void display(){
+        System.out.println("Gear is " + gear + " & " + "Speed is " + speed);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Cycle c = new Cycle();
+
+        c.changeGear(0);
+        c.speedUp(0);
+        c.display();
+
+        c.changeGear(2);
+        c.speedUp(5);
+        c.display();
+    }
+}
+*/
+
+/*
+//Default Abstract Method
+interface I1{
+    int a = 1;
+    default void display(){
+        System.out.println("Default Called!");
+    }
+}
+class DefaultDemo implements I1{
+    public static void main(String[] args) {
+        DefaultDemo dd = new DefaultDemo();
+        dd.display();
+    }
+}
+*/
+/*
+//double <- float <- long <- int <- char <- short <- byte
+//Widening Type Casting
+public class Main {
+    public static void main(String[] args){
+        int x = 10;
+        long y = x;
+        float z = y;
+
+        System.out.println(x);
+        System.out.println(y);
+        System.out.println(z);
+    }
+}
+*/
+
+/*
+//double -> float -> long -> int -> char -> short -> byte
+//Narrowing Type Casting
+public class Main {
+    public static void main(String[] args) {
+        int x = 10;
+        byte y = (byte)x;
+        long z = (long)x;
+
+        System.out.println(x);
+        System.out.println(y);
+        System.out.println(z);
+    }
+}
+*/
+/*
+public class Main {
+    public static void main(String[] args) {
+        byte x = 5;
+        byte y = 10;
+        byte c = (byte)(x+y);
+        //int c = x+y;
+
+        System.out.println(c);
+    }
+}
+*/
+
+/*
+public class Main {
+    public static void main(String[] args) {
+        int x = 100;
+        System.out.println(x++);
+        System.out.println(++x);
+
+        System.out.println();
+
+        System.out.println(x--);
+        System.out.println(--x);
+
+        System.out.println();
+
+        System.out.println(x<<2);
+        System.out.println(x>>2);
+    }
+}
+*/
+
+// ABSENT ON 12/03/24
+
+/*
+class Box{
+    Object container; //For String Data Type, use String instead of Object in the code.
+
+    Box(Object container){
+        this.container=container;
+    }
+
+    public Object getContainer() {
+        System.out.println();
+        return container;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Box b = new Box("Hello");
+        System.out.println(b.getContainer());
+
+        Box c = new Box(1234);
+        System.out.println(c.getContainer());
+    }
+}
+*/
+
+/*
+class Box<T>{ //for instantiating constraints
+    T container;
+
+    Box(T container){
+        this.container=container;
+    }
+
+    public T getContainer() {
+        System.out.println();
+        return container;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Box<String> b = new Box("Hello");
+        //b.container="Hello";
+        System.out.println(b.getContainer());
+
+        Box<Integer> c = new Box(1234);
+        //b.container=1234;
+        System.out.println(c.getContainer());
+    }
+}
+*/
+
+/*
+public class Main {
+    public static void main(String[] args) {
+        Stack<Integer> stk = new Stack<>();
+        stk.push(20);
+        stk.push(40);
+        stk.push(60);
+
+        System.out.println(stk);
+        stk.pop();
+        System.out.println(stk);
+        System.out.println("Peek Element: "+stk.peek());
+        System.out.println(stk.isEmpty());
+        System.out.println(stk.add(80));
+        System.out.println(stk);
+        System.out.println("Available at Index: "+stk.search(80));
+    }
+}
+*/
+
+/*
+public class Main {
+    public static void main(String[] args) {
+        Queue<Integer> que = new LinkedList<>();
+        que.add(20);
+        que.add(40);
+        que.add(60);
+
+        System.out.println("Original Queue: "+que);
+        que.poll();
+        System.out.println("Updated Queue: "+que);
+        System.out.println("Peek Element: "+que.element());
+        System.out.println("Queue empty or not? True or False- "+que.isEmpty());
+        que.offer(80);
+        System.out.println("Updated Queue: "+que);
+    }
+}
+*/
+
+/*
+public class Main {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a,b)->b-a);
+
+        minHeap.add(40);
+        minHeap.add(20);
+        minHeap.add(60);
+        minHeap.add(5);
+        System.out.println("minHeap: "+minHeap);
+        while (!minHeap.isEmpty()) {
+            System.out.println(minHeap.poll());
+        }
+
+        System.out.println();
+
+        maxHeap.add(4);
+        maxHeap.add(2);
+        maxHeap.add(6);
+        maxHeap.add(5);
+        System.out.println("maxHeap: "+maxHeap);
+        while (!maxHeap.isEmpty()) {
+            System.out.println(maxHeap.poll());
+        }
+
+    }
+}
+*/
+
+/*
+public class Main {
+    public static void main(String[] args) {
+        Set<Integer> s = new HashSet<>();
+        s.add(5);
+        s.add(2);
+        s.add(5);
+        s.add(6);
+        System.out.println(s);
+        System.out.println(s.size());
+    }
+}
+*/
+
+/*
+public class Main {
+    public static void main(String[] args) {
+        LinkedHashSet<String> lhs = new LinkedHashSet<String>();
+
+        lhs.add("D");
+        lhs.add("1");
+        lhs.add("C");
+        lhs.add("K");
+        lhs.add("$");
+
+        System.out.println(lhs);
+    }
+}
+*/
+
+/*
+public class Main {
+    public static void main(String[] args) {
+        HashSet<String> hs = new HashSet<String>();
+
+        System.out.println("HashSet:");
+        hs.add("Apple");
+        hs.add("Mango");
+        hs.add("Pineapple");
+        hs.add("Grapes");
+
+        for(String Fruit: hs){
+            System.out.println(Fruit);
+        }
+
+        System.out.println();
+
+        LinkedHashSet<String> lhs = new LinkedHashSet<String>();
+        System.out.println("LinkedHashSet:");
+        lhs.add("Grapes");
+        lhs.add("Apple");
+        lhs.add("Pineapple");
+        lhs.add("Mango");
+
+        for(String Fruit: lhs){
+            System.out.println(Fruit);
+        }
+    }
+}
+*/
+
+/*
+abstract class HillStations{
+    abstract void location();
+    abstract void famousFor();
+}
+class Manali extends HillStations{
+    @Override
+    public void location(){
+        System.out.println("Manali is located in Himachal Pradesh");
+    }
+    @Override
+    public void famousFor(){
+        System.out.println("Manali is famous for Snow-capped-Mountains");
+    }
+}
+
+class Mussoorie extends HillStations{
+    @Override
+    public void location(){
+        System.out.println("Mussoorie is located in Uttrakhand");
+    }
+    @Override
+    public void famousFor(){
+        System.out.println("Manali is famous for mesmerizing waterfalls");
+    }
+}
+
+class Gulmarg extends HillStations{
+    @Override
+    public void location(){
+        System.out.println("Gulmarg is located in Jammu & Kashmir");
+    }
+    @Override
+    public void famousFor(){
+        System.out.println("Gulmarg is famous for Snow-capped-Mountains and Valleys");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Manali mn = new Manali();
+        mn.location();
+        mn.famousFor();
+        System.out.println();
+        Mussoorie ms = new Mussoorie();
+        ms.location();
+        ms.famousFor();
+        System.out.println();
+        Gulmarg gm = new Gulmarg();
+        gm.location();
+        gm.famousFor();
+    }
+}
+*/
+
+/*
+import java.util.Scanner;
+
+abstract class Vaccine {
+    int age;
+    String nationality;
+    boolean isFirstDoseTaken;
+    boolean isSecondDoseTaken;
+
+    Vaccine(int age, String nationality) {
+        this.age = age;
+        this.nationality = nationality;
+        this.isFirstDoseTaken = false;
+        this.isSecondDoseTaken = false;
+    }
+
+    public void firstDose() {
+        if (!isFirstDoseTaken && nationality.equalsIgnoreCase("Indian") && age >= 18) {
+            isFirstDoseTaken = true;
+            System.out.println("First Dose is applicable.");
+            System.out.println("Please pay Rs.250 for the vaccination.");
+        } else {
+            System.out.println("Sorry! You're not eligible.");
+        }
+    }
+
+    public void secondDose() {
+        if (isFirstDoseTaken && !isSecondDoseTaken) {
+            isSecondDoseTaken = true;
+            System.out.println("Eligible for Second Dose.");
+        } else if (!isFirstDoseTaken) {
+            System.out.println("Ineligible, please take the First Dose!");
+        } else {
+            System.out.println("You're not eligible for Second Dose currently.");
+        }
+    }
+
+    abstract void boosterDose();
+}
+
+class VaccinationSuccessful extends Vaccine {
+    public VaccinationSuccessful(int age, String nationality) {
+        super(age, nationality);
+    }
+
+    @Override
+    public void boosterDose() {
+        if (isSecondDoseTaken) {
+            System.out.println("Eligible for the Booster Dose. You can get vaccinated from your nearest Medical Camp.");
+        } else if (!isFirstDoseTaken) {
+            System.out.println("Ineligible, please take the First Dose!");
+        } else {
+            System.out.println("You're not eligible for Booster Dose currently.");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Age: ");
+        int age = sc.nextInt();
+        System.out.print("Enter Nationality: ");
+        String nationality = sc.next();
+
+        System.out.println();
+
+        VaccinationSuccessful vs = new VaccinationSuccessful(age, nationality);
+        System.out.println("Scenario 1:");
+        vs.firstDose();
+        System.out.println("\nScenario 2:");
+        vs.secondDose();
+        System.out.println("\nScenario 3:");
+        vs.boosterDose();
+        sc.close();
+    }
+}
+*/
+
+/*
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> al = new ArrayList<>();
+        al.add(1);
+        al.add(2);
+        al.add(3);
+        al.add(4);
+        al.add(5);
+        al.add(6);
+        al.add(7);
+        al.add(8);
+        al.add(9);
+        al.add(10);
+
+
+        int sum = 0;
+        for (int num : al) {
+            if (num % 2 == 0) {
+                sum += num;
+            }
+        }
+
+        //int sum = 0;
+        //for(int i=0; i<al.size(); i++){
+        //    if(al.get(i) % 2 == 0){
+        //        sum+=al.get(i);
+        //    }
+        //}
+
+        System.out.println("Sum of Even Numbers: "+sum);
+    }
+}
+*/
